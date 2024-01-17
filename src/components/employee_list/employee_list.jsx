@@ -3,12 +3,16 @@
 import EmployeeListItem from '../employee_list_item/employee_list_item'
 import './employee_list.css'
 
-const EmployeeList = ({employeeData}) => {
+const EmployeeList = ({employeeData, onDelete}) => {
 
     const elements = employeeData.map(item => {
         const{id, ...itemProps} = item;
         return(
-            <EmployeeListItem key={id} {...itemProps}/>
+            <EmployeeListItem 
+            key={id} 
+            {...itemProps}
+            onDelete = {() => onDelete(id)}
+            />
         )
     })
 
